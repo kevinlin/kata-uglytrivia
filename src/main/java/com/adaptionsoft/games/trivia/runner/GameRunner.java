@@ -11,7 +11,7 @@ public class GameRunner {
 
     private final long seed;
 
-    private static int nextSeed(int index) {
+    static int nextSeed(int index) {
         return 13 * 19 + index;
     }
 
@@ -19,13 +19,13 @@ public class GameRunner {
         System.setOut(new PrintStream("./game_master.txt"));
 
         for (int i = 0; i < 1000; i++) {
-            System.out.println("--" + i);
             new GameRunner(nextSeed(i)).run();
         }
     }
 
     GameRunner(long seed) {
         this.seed = seed;
+        System.out.println("--" + seed);
     }
 
     void run() {
